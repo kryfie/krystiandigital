@@ -1,0 +1,36 @@
+KRYSTIAN.DIGITAL — POPRAWKA v3.2 / Karuzela realizacji
+
+CO SIĘ ZMIENIA:
+- Wyróżnione projekty z Pages CMS wyświetlają się w jednej eleganckiej karuzeli z ramką przeglądarki.
+- Kliknięcie DUŻEGO ZDJĘCIA przenosi na podstronę projektu.
+- Strzałki i miniatury zmieniają projekt; na telefonie działa przesunięcie palcem.
+- Główne zdjęcie jest widoczne w całości, nie obcinamy boków.
+- W CMS można oznaczyć dowolną liczbę projektów do karuzeli, nie tylko 2.
+- Cała lista projektów pod karuzelą zostaje bez zmian.
+
+INSTALACJA:
+1. GitHub Desktop -> Repository -> Show in Explorer.
+2. Rozpakuj ZIP poza repozytorium.
+3. Skopiuj z ZIP do głównego folderu repozytorium:
+     index.html
+     .pages.yml
+     assets/css/style.css
+     assets/js/featured-carousel.js (NOWY)
+   Scal foldery i zastąp TYLKO te pliki.
+4. GitHub Desktop -> Commit -> Push origin.
+5. GitHub Actions/Pages -> sprawdź status; po publikacji Ctrl+F5.
+
+UWAGA — WAŻNE:
+Nie usuwaj ani nie podmieniaj folderu _projects/ ani assets/images/projects/.
+Nie podmieniaj _layouts/project.html ani assets/js/project-gallery.js — wcześniejsza galeria na podstronach pozostaje.
+Zmiany w CMS zapisują się w repozytorium GitHub i pozostają tam po tej aktualizacji.
+Jeśli zmieniałeś ręcznie index.html lub style.css od ostatniego ZIP-a, porównaj te pliki przed zastąpieniem, by nie stracić własnych poprawek.
+
+PAGES CMS:
+1. Otwórz projekt.
+2. Pole „Pokaż w karuzeli na stronie głównej” ustaw na True.
+3. Wybierz zdjęcie główne.
+4. Pole „Kolejność” decyduje o kolejności slajdów.
+5. Kliknij Save. Po publikacji na GitHub Pages nowy projekt pokaże się w karuzeli.
+
+Strona nadal działa na GitHub Pages i nie wymaga Rendera.

@@ -51,8 +51,8 @@ content:
         type: boolean
         default: true
       - name: featured
-        label: Wyróżnij na stronie głównej (maks. 2)
-        description: Zaznacz w DWÓCH projektach. Jeśli zaznaczysz więcej, strona pokaże tylko dwa pierwsze wg kolejności.
+        label: Pokaż w karuzeli na stronie głównej
+        description: Zaznacz w dowolnej liczbie projektów. Karuzela pokaże wszystkie wyróżnione według pola Kolejność.
         type: boolean
         default: false
       - name: order
