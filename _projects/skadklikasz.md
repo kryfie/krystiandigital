@@ -7,7 +7,7 @@ status: Działa · rozwijam
 published: true
 featured: true
 order: 2
-image: /assets/images/projects/1-2.png
+image: /assets/images/projects/1-1.png
 image_alt: Strona główna SkądKlikasz
 gallery:
   - /assets/images/projects/2-2.png
