@@ -8,10 +8,12 @@ published: true
 featured: true
 order: 2
 image: /assets/images/projects/1-2.png
-image_alt: Grafika projektu SkądKlikasz — miejsce na własny zrzut ekranu
+image_alt: Strona główna SkądKlikasz
+gallery:
+  - /assets/images/projects/2-2.png
+  - /assets/images/projects/3-2.png
 external_url: https://skadklikasz.pl
-image_note: Widoczna grafika to okładka projektowa, nie zrzut działającej
-  strony. Można zastąpić ją rzeczywistym screenem projektu.
+image_note: Rzeczywiste screeny ze strony www.
 ---
 Własny projekt anonimowego czatu. Wchodzisz, wybierasz nick i rozmawiasz — bez zakładania konta.
 
