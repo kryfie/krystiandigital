@@ -14,6 +14,29 @@ layout: null
 {% endfor %}
 {% if featured_total > 0 %}
 <div class="featured-carousel" data-featured-carousel aria-label="Wyróżnione realizacje">
+  {% if featured_total > 1 %}
+  <div class="featured-navigation" aria-label="Przeglądaj wyróżnione projekty">
+    <div class="featured-stepper">
+      <span class="featured-progress" data-featured-progress aria-live="polite">01 / {{ featured_total }}</span>
+      <button class="featured-arrow" type="button" data-featured-prev aria-label="Poprzedni projekt">←</button>
+      <button class="featured-arrow" type="button" data-featured-next aria-label="Następny projekt">→</button>
+    </div>
+    <div class="featured-thumbnails" aria-label="Wybierz projekt">
+      {% assign thumbnail_index = 0 %}
+      {% for project in projects_sorted %}
+        {% if project.published != false and project.featured %}
+          <button class="featured-thumbnail" type="button" data-featured-thumb="{{ thumbnail_index }}" aria-label="Pokaż projekt {{ project.title | escape }}" aria-current="{% if thumbnail_index == 0 %}true{% else %}false{% endif %}">
+            <span class="featured-thumbnail-image">
+              {% if project.image and project.image != '' %}<img src="{{ project.image | relative_url }}" alt="" loading="lazy" decoding="async">{% else %}<span aria-hidden="true">↗</span>{% endif %}
+            </span>
+            <span class="featured-thumbnail-title">{{ project.title | escape }}</span>
+          </button>
+          {% assign thumbnail_index = thumbnail_index | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
   <div class="featured-stage">
     {% assign featured_index = 0 %}
     {% for project in projects_sorted %}
@@ -46,31 +69,11 @@ layout: null
       {% assign featured_index = featured_index | plus: 1 %}
       {% endif %}
     {% endfor %}
+    {% if featured_total > 1 %}
+      <button class="featured-stage-arrow featured-stage-arrow-prev" type="button" data-featured-prev aria-label="Poprzedni projekt">←</button>
+      <button class="featured-stage-arrow featured-stage-arrow-next" type="button" data-featured-next aria-label="Następny projekt">→</button>
+    {% endif %}
   </div>
-  {% if featured_total > 1 %}
-  <div class="featured-navigation" aria-label="Przeglądaj wyróżnione projekty">
-    <div class="featured-stepper">
-      <span class="featured-progress" data-featured-progress aria-live="polite">01 / {{ featured_total }}</span>
-      <button class="featured-arrow" type="button" data-featured-prev aria-label="Poprzedni projekt">←</button>
-      <button class="featured-arrow" type="button" data-featured-next aria-label="Następny projekt">→</button>
-    </div>
-    <div class="featured-thumbnails" aria-label="Wybierz projekt">
-      {% assign thumbnail_index = 0 %}
-      {% for project in projects_sorted %}
-        {% if project.published != false and project.featured %}
-          <button class="featured-thumbnail" type="button" data-featured-thumb="{{ thumbnail_index }}" aria-label="Pokaż projekt {{ project.title | escape }}" aria-current="{% if thumbnail_index == 0 %}true{% else %}false{% endif %}">
-            <span class="featured-thumbnail-image">
-              {% if project.image and project.image != '' %}<img src="{{ project.image | relative_url }}" alt="" loading="lazy" decoding="async">{% else %}<span aria-hidden="true">↗</span>{% endif %}
-            </span>
-            <span class="featured-thumbnail-title">{{ project.title | escape }}</span>
-          </button>
-          {% assign thumbnail_index = thumbnail_index | plus: 1 %}
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-  {% endif %}
-</div>
 {% else %}
 <p class="featured-empty">Wkrótce pokażę tutaj wybrane projekty. Wyróżnione realizacje ustawiam w Pages CMS.</p>
 {% endif %}

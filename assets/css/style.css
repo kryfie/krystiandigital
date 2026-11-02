@@ -179,3 +179,81 @@ body.project-lightbox-open{overflow:hidden}
 @media(max-width:850px){.featured-image-stage{aspect-ratio:1.52}.featured-navigation{flex-direction:column;gap:15px}.featured-thumbnails{max-width:100%;width:100%}}
 @media(max-width:570px){.featured-chrome{height:36px;grid-template-columns:45px minmax(0,1fr) 28px;gap:5px;padding:0 10px;font-size:10px}.featured-chrome-dots{gap:4px}.featured-chrome-dots i{width:6px;height:6px}.featured-image-stage{aspect-ratio:1.15}.featured-open-label{right:9px;bottom:9px;padding:9px 11px;font-size:11px;gap:10px}.featured-description{flex-direction:column;align-items:flex-start;padding:19px 0 22px;gap:15px}.featured-description h3{font-size:33px}.featured-description p{font-size:14px}.featured-navigation{margin-top:17px}.featured-thumbnails{gap:9px}.featured-thumbnail{width:135px}.featured-thumbnail-image{height:58px}.featured-window{border-radius:8px}}
 @media(prefers-reduced-motion:reduce){.featured-window,.featured-image-stage>img{transition:none}}
+
+
+/* v3.3 · jeden pasek pomiędzy leadem realizacji a podglądem.
+   Miniaturki mają stały rozmiar i przewijają się poziomo bez zawijania.
+   Nie zmienia układu reszty strony ani integracji Pages CMS. */
+.featured-carousel{margin-top:0;min-width:0}
+.featured-stage{position:relative;min-width:0}
+.featured-navigation{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  align-items:center;
+  flex-wrap:nowrap;
+  gap:22px;
+  margin:0 0 24px;
+  padding:14px 0 18px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  min-width:0;
+}
+.featured-stepper{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.featured-progress{min-width:73px;margin-right:8px}
+.featured-thumbnails{
+  display:flex;
+  align-items:stretch;
+  gap:9px;
+  width:100%;
+  min-width:0;
+  max-width:none;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:2px 2px 9px;
+  position:relative;
+  scroll-snap-type:none;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  scrollbar-color:#c7bfb2 transparent;
+}
+.featured-thumbnail{
+  flex:0 0 134px;
+  width:134px;
+  min-width:134px;
+  scroll-snap-align:start;
+}
+.featured-thumbnail-image{height:62px}
+.featured-stage-arrow{
+  position:absolute;
+  top:clamp(158px,26vw,324px);
+  z-index:5;
+  width:47px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  transform:translateY(-50%);
+  border:1px solid rgba(248,246,238,.5);
+  background:rgba(30,33,29,.84);
+  color:#fffdf6;
+  font-size:25px;
+  line-height:1;
+  backdrop-filter:blur(4px);
+  transition:background .2s;
+}
+.featured-stage-arrow-prev{left:12px}
+.featured-stage-arrow-next{right:12px}
+.featured-stage-arrow:hover{background:var(--orange)}
+@media(max-width:850px){
+  .featured-navigation{grid-template-columns:minmax(0,1fr);gap:14px}
+  .featured-stepper{justify-content:flex-start}
+  .featured-thumbnails{max-width:100%}
+}
+@media(max-width:570px){
+  .featured-navigation{margin:0 0 18px;padding:13px 0 14px;gap:12px}
+  .featured-thumbnail{flex-basis:123px;width:123px;min-width:123px}
+  .featured-thumbnail-image{height:55px}
+  .featured-stage-arrow{top:clamp(125px,40vw,180px);height:44px;width:37px;font-size:22px}
+  .featured-stage-arrow-prev{left:7px}.featured-stage-arrow-next{right:7px}
+}
+@media(prefers-reduced-motion:reduce){.featured-stage-arrow{transition:none}.featured-thumbnails{scroll-behavior:auto}}

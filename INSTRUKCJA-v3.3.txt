@@ -1,0 +1,27 @@
+KRYSTIAN.DIGITAL — v3.3 / Pasek nawigacji nad karuzelą
+
+ZMIANY
+- Cały pasek: licznik, strzałki i miniaturki — POMIĘDZY opisem realizacji a dużym podglądem.
+- Druga para strzałek bezpośrednio na podglądzie.
+- Miniatury nie zawijają się do drugiego rzędu. Przy np. 15 projektach lista przewija się w poziomie.
+- Aktywna miniatura pozostaje widoczna: kliknięcie strzałki przewija miniatury do bieżącego projektu.
+- Dotykowe przesuwanie paska i dużego podglądu działa na telefonie.
+- Kliknięcie dużego podglądu otwiera szczegóły projektu.
+
+INSTALACJA — TYLKO TRZY PLIKI
+1. Rozpakuj ZIP poza katalogiem repozytorium.
+2. Skopiuj do repozytorium dokładnie trzy pliki, zachowując strukturę:
+   index.html
+   assets/css/style.css
+   assets/js/featured-carousel.js
+3. Zastąp istniejące pliki. Nie kopiuj innych katalogów.
+4. GitHub Desktop -> Commit -> Push origin.
+5. Po zakończeniu GitHub Pages odśwież stronę klawiszami Ctrl + F5.
+
+WAŻNE
+Nie podmieniaj pliku .pages.yml, katalogu _projects ani katalogu assets/images/projects.
+Wszystkie zdjęcia i treści zapisane przez Pages CMS pozostają bez zmian.
+Jeśli po ostatniej paczce zmieniałeś ręcznie index.html lub style.css — porównaj je przed zastąpieniem.
+
+W Pages CMS: ustaw „Pokaż w karuzeli na stronie głównej” na True przy dowolnej liczbie projektów.
+Kolejność w karuzeli wynika z pola Kolejność. Render nie jest potrzebny.
