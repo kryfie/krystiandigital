@@ -10,8 +10,8 @@ order: 1
 image: /assets/images/projects/1.png
 image_alt: Grafika projektu Churreria Mundo — miejsce na własny zrzut ekranu
 gallery:
-  - /assets/images/projects/2.png
-  - /assets/images/projects/4.png
+  - /assets/images/projects/2-1.png
+  - /assets/images/projects/4-1.png
   - /assets/images/projects/3-1.png
   - /assets/images/projects/5-1.png
 external_url: https://kryfie.github.io/churreriamundo/
