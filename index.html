@@ -1,7 +1,7 @@
 ---
 layout: null
 ---
-<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f4ee"><link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/style.css"><script defer src="assets/js/config.js"></script><script defer src="assets/js/main.js"></script><script defer src="assets/js/featured-carousel.js"></script><title>Krystian Digital — strony internetowe i własne projekty | Szczecin</title><meta name="description" content="Tworzę strony WWW dla małych firm oraz własne narzędzia i projekty z AI. Osobista współpraca, bez agencji. Portfolio Krystiana Fiedoruka."><meta property="og:type" content="website"><meta property="og:title" content="Krystian Digital — strony internetowe i własne projekty | Szczecin"><meta property="og:description" content="Tworzę strony WWW dla małych firm oraz własne narzędzia i projekty z AI. Osobista współpraca, bez agencji. Portfolio Krystiana Fiedoruka."><meta property="og:locale" content="pl_PL"></head><body><header class="masthead"><div class="shell navrow"><a class="wordmark" href="index.html" aria-label="Krystian Digital — strona główna">krystian<span class="dot">.</span>digital</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Otwórz menu"><span></span><span></span></button><nav class="navlinks" id="main-menu" aria-label="Nawigacja główna"><a href="index.html#oferta">Co robię</a><a href="index.html#projekty">Projekty</a><a href="index.html#o-mnie">O mnie</a><a class="nav-contact" href="index.html#kontakt">Porozmawiajmy ↗</a></nav></div></header><main>
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f4ee"><link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/style.css?v=3.4"><script defer src="assets/js/config.js"></script><script defer src="assets/js/main.js"></script><script defer src="assets/js/featured-carousel.js?v=3.4"></script><title>Krystian Digital — strony internetowe i własne projekty | Szczecin</title><meta name="description" content="Tworzę strony WWW dla małych firm oraz własne narzędzia i projekty z AI. Osobista współpraca, bez agencji. Portfolio Krystiana Fiedoruka."><meta property="og:type" content="website"><meta property="og:title" content="Krystian Digital — strony internetowe i własne projekty | Szczecin"><meta property="og:description" content="Tworzę strony WWW dla małych firm oraz własne narzędzia i projekty z AI. Osobista współpraca, bez agencji. Portfolio Krystiana Fiedoruka."><meta property="og:locale" content="pl_PL"></head><body><header class="masthead"><div class="shell navrow"><a class="wordmark" href="index.html" aria-label="Krystian Digital — strona główna">krystian<span class="dot">.</span>digital</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Otwórz menu"><span></span><span></span></button><nav class="navlinks" id="main-menu" aria-label="Nawigacja główna"><a href="index.html#oferta">Co robię</a><a href="index.html#projekty">Projekty</a><a href="index.html#o-mnie">O mnie</a><a class="nav-contact" href="index.html#kontakt">Porozmawiajmy ↗</a></nav></div></header><main>
 <section class="shell hero" aria-labelledby="main-heading"><div class="hero-copy"><div class="eyebrow">Cześć, jestem Krystian</div><h1 id="main-heading">Tworzę strony WWW<br>i <em>rozwiązania, które naprawdę działają.</em></h1><p class="hero-lead">Projektuję strony internetowe dla małych firm. Po godzinach buduję własne narzędzia i eksperymentuję z AI. Wszystko osobiście — bez agencji i bez pośredników.</p><div class="cta-row"><a class="button-primary" href="#kontakt">Opowiedz mi o swoim pomyśle <span class="arrow" aria-hidden="true">↗</span></a><a class="text-link" href="#projekty">Zobacz moje projekty <span aria-hidden="true">↓</span></a></div><div class="hero-footnote"><i class="bullet" aria-hidden="true"></i><span>Strony WWW / małe narzędzia / automatyzacje</span></div></div><div class="hero-picture"><img src="assets/images/krystian.webp" alt="Krystian — twórca stron WWW i narzędzi cyfrowych" width="960" height="1110" fetchpriority="high"><span class="photo-caption">Człowiek, nie agencja.</span></div></section>
 <div class="running"><div class="shell running-inner"><strong>Dobra strona powinna na siebie zarabiać, nie tylko wyglądać.</strong><span>Projektuję / buduję / automatyzuję</span></div></div>
 <section class="section shell" id="oferta"><div class="section-top"><div class="section-id">Co robię?</div><div><h2 class="section-heading">Mniej komplikacji.<br><em>Więcej sensu.</em></h2><p class="section-copy">Nie sprzedaję wszystkiego wszystkim. Skupiam się na rzeczach, które umiem zrobić sam, od początku do końca.</p></div></div><div class="services"><div class="service-item"><div class="n">01.</div><h3>Strony internetowe</h3><p>Nowe witryny i odświeżanie istniejących. Szybkie, czytelne, wygodne na telefonie i proste w utrzymaniu.</p></div><div class="service-item"><div class="n">02.</div><h3>Narzędzia i automatyzacje</h3><p>Małe aplikacje, formularze i rozwiązania, które oszczędzają powtarzalną pracę. Także z wykorzystaniem AI.</p></div><div class="service-item"><div class="n">03.</div><h3>Treści do internetu</h3><p>Proste materiały na social media, krótkie filmy i uporządkowanie tego, jak Twoja firma pokazuje się w sieci.</p></div></div></section>
@@ -42,6 +42,7 @@ layout: null
     {% for project in projects_sorted %}
       {% if project.published != false and project.featured %}
       <article class="featured-slide" data-featured-slide data-index="{{ featured_index }}" {% if featured_index > 0 %}hidden{% endif %}>
+        <div class="featured-visual">
         <a class="featured-window" href="{{ project.url | relative_url }}" aria-label="Zobacz szczegóły projektu {{ project.title | escape }}">
           <div class="featured-chrome" aria-hidden="true">
             <span class="featured-chrome-dots"><i></i><i></i><i></i></span>
@@ -57,6 +58,11 @@ layout: null
             <span class="featured-open-label">Zobacz projekt <span aria-hidden="true">↗</span></span>
           </div>
         </a>
+          {% if featured_total > 1 %}
+          <button class="featured-stage-arrow featured-stage-arrow-prev" type="button" data-featured-prev aria-label="Poprzedni projekt">←</button>
+          <button class="featured-stage-arrow featured-stage-arrow-next" type="button" data-featured-next aria-label="Następny projekt">→</button>
+          {% endif %}
+        </div>
         <div class="featured-description">
           <div>
             <div class="featured-kicker">{% if project.category == 'www' %}Strona WWW{% else %}Narzędzie / AI{% endif %} <span aria-hidden="true">/</span> {{ project.status | escape }}</div>
@@ -69,10 +75,6 @@ layout: null
       {% assign featured_index = featured_index | plus: 1 %}
       {% endif %}
     {% endfor %}
-    {% if featured_total > 1 %}
-      <button class="featured-stage-arrow featured-stage-arrow-prev" type="button" data-featured-prev aria-label="Poprzedni projekt">←</button>
-      <button class="featured-stage-arrow featured-stage-arrow-next" type="button" data-featured-next aria-label="Następny projekt">→</button>
-    {% endif %}
   </div>
 {% else %}
 <p class="featured-empty">Wkrótce pokażę tutaj wybrane projekty. Wyróżnione realizacje ustawiam w Pages CMS.</p>

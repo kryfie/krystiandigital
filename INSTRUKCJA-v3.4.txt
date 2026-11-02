@@ -1,0 +1,21 @@
+KRYSTIAN.DIGITAL — v3.4 / STRZAŁKI KARUZELI
+
+CO ZMIENIONO
+- Strzałki na dużym podglądzie są umieszczone przy każdej fotografii, obok linku do projektu.
+- Nie ma już strzałek pod opisem projektu.
+- Strzałki przy miniaturach pozostają na górze, działają także miniatury, swipe i licznik.
+- W index.html dodano ?v=3.4 do CSS i JS: wymusza pobranie nowych plików, zapobiega mieszaniu wersji w cache.
+- CMS i dane projektów bez zmian.
+
+INSTALACJA
+1. Rozpakuj ZIP.
+2. Podmień TYLKO trzy pliki, zachowując katalogi:
+     index.html
+     assets/css/style.css
+     assets/js/featured-carousel.js
+3. GitHub Desktop -> Commit -> Push origin.
+4. Po zakończeniu publikacji GitHub Pages odśwież stronę Ctrl+F5.
+5. Przetestuj strzałki w pasku, na zdjęciu oraz kliknięcie zdjęcia (szczegóły projektu).
+
+Nie podmieniaj .pages.yml, _projects ani assets/images.
+Jeżeli od wersji 3.3 edytowałeś ręcznie wymienione pliki, porównaj je przed nadpisaniem.

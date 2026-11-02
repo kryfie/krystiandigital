@@ -257,3 +257,35 @@ body.project-lightbox-open{overflow:hidden}
   .featured-stage-arrow-prev{left:7px}.featured-stage-arrow-next{right:7px}
 }
 @media(prefers-reduced-motion:reduce){.featured-stage-arrow{transition:none}.featured-thumbnails{scroll-behavior:auto}}
+
+
+/* v3.4: nawigacja nad zdjęciem, bez osieroconych przycisków pod karuzelą. */
+.featured-slide .featured-visual{position:relative;min-width:0;isolation:isolate}
+.featured-slide .featured-visual .featured-stage-arrow{
+  position:absolute;
+  top:calc(50% + 20px);
+  z-index:4;
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:54px;
+  padding:0;
+  transform:translateY(-50%);
+  border:1px solid rgba(255,255,255,.6);
+  border-radius:3px;
+  background:rgba(29,34,30,.86);
+  color:#fff;
+  font:500 25px/1 sans-serif;
+  cursor:pointer;
+  box-shadow:0 3px 12px rgba(0,0,0,.16);
+  -webkit-tap-highlight-color:transparent;
+}
+.featured-slide .featured-visual .featured-stage-arrow-prev{left:13px}
+.featured-slide .featured-visual .featured-stage-arrow-next{right:13px}
+.featured-slide .featured-visual .featured-stage-arrow:hover,
+.featured-slide .featured-visual .featured-stage-arrow:focus-visible{background:#c85f44;color:#fff;outline-offset:2px}
+@media(max-width:570px){
+  .featured-slide .featured-visual .featured-stage-arrow{top:calc(50% + 18px);width:40px;height:48px;font-size:22px}
+  .featured-slide .featured-visual .featured-stage-arrow-prev{left:7px}
+  .featured-slide .featured-visual .featured-stage-arrow-next{right:7px}
+}
