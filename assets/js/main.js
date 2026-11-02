@@ -24,6 +24,25 @@
   if(form){
     const status=form.querySelector('.form-status');
     const submit=form.querySelector('button[type=submit]');
+    const contactRadios=form.querySelectorAll('input[name="preferred_contact"]');
+    const phone=form.querySelector('#tel');
+    const email=form.querySelector('#email');
+    const phoneRequired=form.querySelector('#phone-required');
+    const emailRequired=form.querySelector('#email-required');
+    const callbackBox=form.querySelector('#callback-hours');
+    const callbackHours=form.querySelector('#preferred-hours');
+    const syncContactPreference=()=>{
+      const wantsPhone=form.querySelector('input[name="preferred_contact"]:checked')?.value==='Telefon';
+      phone.required=wantsPhone;
+      email.required=!wantsPhone;
+      callbackBox.hidden=!wantsPhone;
+      callbackHours.disabled=!wantsPhone;
+      callbackHours.required=wantsPhone;
+      phoneRequired.textContent=wantsPhone?'*':'(opcjonalnie)';
+      emailRequired.textContent=wantsPhone?'(opcjonalnie)':'*';
+    };
+    contactRadios.forEach(radio=>radio.addEventListener('change',syncContactPreference));
+    syncContactPreference();
     form.addEventListener('submit',async(e)=>{
       e.preventDefault();
       if(!form.reportValidity()) return;
@@ -40,7 +59,7 @@
           method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)
         });
         if(!res.ok) throw new Error('HTTP '+res.status);
-        form.reset();status.textContent='Dziękuję! Wiadomość została wysłana. Odezwę się osobiście.';status.classList.add('success');
+        form.reset();syncContactPreference();status.textContent='Dziękuję! Wiadomość została wysłana. Odezwę się osobiście.';status.classList.add('success');
       }catch(err){ status.textContent='Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz do mnie na TikToku.';status.classList.add('error'); }
       finally{submit.disabled=false;submit.innerHTML='Wyślij zapytanie <span class="arrow" aria-hidden="true">↗</span>';}
     });

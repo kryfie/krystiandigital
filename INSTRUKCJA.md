@@ -1,10 +1,10 @@
-# krystian.digital · v2.0 · GitHub Pages
+# krystian.digital · v2.1 · GitHub Pages
 
 Osobista strona/portfolio wykonana w czystym HTML, CSS i JS. Bez Reacta, kompilowania, abonamentów i zależności od Netlify. Bardziej redakcyjny, ludzki styl: jasne tło, wyraźna typografia, autentyczny portret, bez fikcyjnych statystyk i sztucznych opinii.
 
 ## Wdrażanie na GitHub Pages
 
-1. Rozpakuj ten ZIP. W środku jest folder `krystian-digital-v2-github-pages`. Wgraj **jego zawartość** do głównego katalogu nowego publicznego repozytorium GitHub (tak, aby `index.html` był na poziomie głównym).
+1. Rozpakuj ten ZIP. W środku jest folder `krystian-digital-v2-1-github-pages`. Wgraj **jego zawartość** do głównego katalogu nowego publicznego repozytorium GitHub (tak, aby `index.html` był na poziomie głównym).
 2. Na GitHub wejdź w repozytorium → **Settings → Pages**.
 3. W sekcji **Build and deployment** wybierz **Deploy from a branch**, `main` i `/(root)`, potem **Save**.
 4. Strona będzie pod adresem w stylu `https://twoj-login.github.io/nazwa-repo/`. Wszystkie linki są względne, więc podstrony powinny działać bez osobnej domeny.
@@ -51,3 +51,10 @@ Edytujesz pliki w folderze lokalnie; nic nie trzeba budować w terminalu. Nowe p
 - sprawdź opisy i aktualne statusy projektów oraz zgodę na ich prezentację
 - podmień wybrane okładki na realne screenshoty
 - sprawdź telefon, komputer i poprawność podłączenia domeny
+
+## Zmiany w v2.1
+
+- Zmieniono nagłówek, pasek hasłowy, nazwy sekcji, tekst „O mnie” oraz tekst kontaktowy zgodnie z zatwierdzonymi propozycjami.
+- Usunięto pionowy napis przy portrecie; podpis teraz brzmi „Człowiek, nie agencja”.
+- Formularz pozwala wybrać **E-mail / Telefon**. Przy telefonie pojawia się pole godzin oddzwonienia (wymagane) i wymagany numer telefonu; pole e-mail staje się wtedy opcjonalne. Przy e-mailu to adres e-mail jest wymagany, a numer telefonu opcjonalny.
+- Wysyłka nadal wymaga podłączenia **Formspree** w `assets/js/config.js`; bez tego formularz nie wysyła wiadomości i informuje o braku konfiguracji.
