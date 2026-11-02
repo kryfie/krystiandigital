@@ -6,6 +6,7 @@
 <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 <script defer src="{{ '/assets/js/main.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/project-gallery.js' | relative_url }}"></script>
 <title>{{ page.title | escape }} — projekt | Krystian Digital</title>
 <meta name="description" content="{{ page.description | default: page.title | escape }}">
 <meta property="og:type" content="article"><meta property="og:title" content="{{ page.title | escape }} — Krystian Digital">
@@ -18,11 +19,31 @@
 <div class="project-page-head"><div><div class="eyebrow">{% if page.category == 'www' %}WWW{% else %}Narzędzie{% endif %} / {{ page.status | escape }}</div>
 <h1>{{ page.title | escape }}<span style="color:var(--orange)">.</span></h1><div class="large">{{ page.description | escape }}</div></div>
 <dl class="project-side"><div class="meta-line"><dt>Typ pracy</dt><dd>{{ page.project_type | default: 'Projekt cyfrowy' | escape }}</dd></div><div class="meta-line"><dt>Status</dt><dd>{{ page.status | escape }}</dd></div><div class="meta-line"><dt>Autor</dt><dd>Krystian Fiedoruk</dd></div></dl></div>
-{% if page.image and page.image != '' %}<img class="project-image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" width="1400" height="1000">{% endif %}
+{% if page.image and page.image != '' %}
+<a class="project-cover-link js-gallery-item" href="{{ page.image | relative_url }}" aria-label="Powiększ zdjęcie główne: {{ page.title | escape }}">
+<img class="project-image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" width="1400" height="1000">
+<span class="cover-zoom-hint" aria-hidden="true">Powiększ zdjęcie <span>↗</span></span>
+</a>{% endif %}
 <div class="project-body"><h2>O projekcie</h2><div><div class="project-prose">{{ content }}</div>
 {% if page.image_note and page.image_note != '' %}<div class="project-note"><strong>Informacja:</strong> {{ page.image_note | escape }}</div>{% endif %}
 {% if page.external_url and page.external_url != '' %}<a href="{{ page.external_url | escape }}" class="text-link project-outbound" target="_blank" rel="noopener noreferrer">Zobacz projekt na żywo ↗</a>{% endif %}
 </div></div>
-{% if page.gallery and page.gallery.size > 0 %}<div class="project-gallery" aria-label="Galeria zdjęć projektu">{% for photo in page.gallery %}{% if photo != '' %}<a href="{{ photo | relative_url }}" target="_blank" rel="noopener noreferrer"><img src="{{ photo | relative_url }}" alt="Galeria: {{ page.title | escape }} — zdjęcie {{ forloop.index }}" loading="lazy"></a>{% endif %}{% endfor %}</div>{% endif %}
-</div><div class="project-bottom"><div class="shell project-bottom-inner"><p>Masz podobny pomysł?</p><a class="button-primary" href="{{ '/' | relative_url }}#kontakt">Napisz do mnie <span class="arrow" aria-hidden="true">↗</span></a></div></div></main>
+{% if page.gallery and page.gallery.size > 0 %}
+<section class="project-gallery-section" aria-labelledby="gallery-heading">
+<div class="project-gallery-top"><div><div class="eyebrow">Zdjęcia projektu</div><h2 id="gallery-heading">Galeria</h2></div><p>Kliknij zdjęcie, aby obejrzeć je w całości.</p></div>
+<div class="project-gallery" aria-label="Galeria zdjęć projektu">
+{% for photo in page.gallery %}{% if photo != '' %}
+<a class="project-gallery-item js-gallery-item" href="{{ photo | relative_url }}" aria-label="Powiększ zdjęcie {{ forloop.index }} z galerii {{ page.title | escape }}">
+<img src="{{ photo | relative_url }}" alt="{{ page.title | escape }} — zdjęcie {{ forloop.index }}" loading="lazy" width="1280" height="900">
+<span class="gallery-zoom-hint" aria-hidden="true">Zobacz zdjęcie ↗</span>
+</a>{% endif %}{% endfor %}
+</div></section>{% endif %}
+
+</div><div class="project-lightbox" id="project-lightbox" role="dialog" aria-modal="true" aria-label="Powiększona galeria projektu" hidden>
+<div class="project-lightbox-backdrop" data-gallery-close></div>
+<div class="project-lightbox-dialog" role="document">
+<div class="project-lightbox-bar"><span class="project-lightbox-count" id="project-lightbox-count" aria-live="polite"></span><button class="project-lightbox-close" type="button" data-gallery-close aria-label="Zamknij galerię">Zamknij <span aria-hidden="true">×</span></button></div>
+<div class="project-lightbox-stage"><button class="project-lightbox-arrow project-lightbox-prev" type="button" data-gallery-prev aria-label="Poprzednie zdjęcie">←</button><figure><img id="project-lightbox-image" alt=""><figcaption id="project-lightbox-caption"></figcaption></figure><button class="project-lightbox-arrow project-lightbox-next" type="button" data-gallery-next aria-label="Następne zdjęcie">→</button></div>
+<div class="project-lightbox-help">← → zmiana zdjęcia <span aria-hidden="true">·</span> Esc zamyka</div>
+</div></div><div class="project-bottom"><div class="shell project-bottom-inner"><p>Masz podobny pomysł?</p><a class="button-primary" href="{{ '/' | relative_url }}#kontakt">Napisz do mnie <span class="arrow" aria-hidden="true">↗</span></a></div></div></main>
 <footer class="footer"><div class="shell"><div class="footer-top"><a class="wordmark" href="{{ '/' | relative_url }}">krystian<span class="dot">.</span>digital</a><div class="footer-side"><a href="{{ '/' | relative_url }}#projekty">Projekty</a><a href="{{ '/' | relative_url }}#kontakt">Kontakt</a><a href="https://www.tiktok.com/@krystianfiedoruk" target="_blank" rel="noopener noreferrer">TikTok ↗</a></div></div><div class="footer-bottom"><span>© 2026 Krystian Fiedoruk · Szczecin / zdalnie</span><a href="{{ '/prywatnosc/' | relative_url }}">Prywatność</a></div></div></footer></body></html>
