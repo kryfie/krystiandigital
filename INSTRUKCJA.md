@@ -1,60 +1,60 @@
-# krystian.digital · v2.1 · GitHub Pages
+# krystian.digital v3 — Pages CMS + GitHub Pages
 
-Osobista strona/portfolio wykonana w czystym HTML, CSS i JS. Bez Reacta, kompilowania, abonamentów i zależności od Netlify. Bardziej redakcyjny, ludzki styl: jasne tło, wyraźna typografia, autentyczny portret, bez fikcyjnych statystyk i sztucznych opinii.
+**Render nie jest potrzebny.** Panel CMS działa pod https://app.pagescms.org/ i zapisuje projekty jako pliki Markdown do Twojego repozytorium GitHub. Wbudowany w GitHub Pages Jekyll automatycznie tworzy publiczne podstrony projektu i aktualizuje listy na stronie głównej. Nie musisz płacić za hosting panelu ani uruchamiać własnego serwera. Dostęp do panelu wymaga autoryzacji GitHub.
 
-## Wdrażanie na GitHub Pages
+## 1. Jednorazowe wdrożenie
 
-1. Rozpakuj ten ZIP. W środku jest folder `krystian-digital-v2-1-github-pages`. Wgraj **jego zawartość** do głównego katalogu nowego publicznego repozytorium GitHub (tak, aby `index.html` był na poziomie głównym).
-2. Na GitHub wejdź w repozytorium → **Settings → Pages**.
-3. W sekcji **Build and deployment** wybierz **Deploy from a branch**, `main` i `/(root)`, potem **Save**.
-4. Strona będzie pod adresem w stylu `https://twoj-login.github.io/nazwa-repo/`. Wszystkie linki są względne, więc podstrony powinny działać bez osobnej domeny.
-5. Przyszłe zmiany: podmień pliki lokalnie, zrób commit i push przez GitHub Desktop. GitHub Pages opublikuje aktualizację.
-6. Domena `krystian.digital` **nie została kupiona ani podłączona**. Gdy ją kupisz, ustaw ją w **Settings → Pages → Custom domain** i skonfiguruj DNS zgodnie z instrukcją GitHub. Dopiero po konfiguracji domeny możesz dodać do repo `CNAME` z samą nazwą `krystian.digital`. Nie dodaję go teraz, aby nie psuć domyślnego adresu GitHub Pages.
+1. Zrób kopię obecnego repozytorium.
+2. **Usuń stary katalog `projekty/` oraz stary plik `.nojekyll` bezpośrednio z lokalnego repozytorium** (to pozostałości poprzedniej wersji). Nowy system utworzy te strony automatycznie z folderu `_projects/`. Usunięcie jest ważne, aby stare strony nie przykrywały nowych.
+3. Skopiuj **całą zawartość** tego ZIP-a do katalogu repozytorium na komputerze, zachowując pliki zaczynające się od kropki (szczególnie `.pages.yml`).
+4. Zrób commit i Push w GitHub Desktop.
+5. W GitHub → Settings → Pages wybierz Source: **Deploy from a branch**, Branch: `main`, Folder: `/(root)`. Jekyll powinien zbudować stronę. Jeśli publikacja już tak działa — nie zmieniaj ustawień.
+6. Uwaga: ZIP nie zawiera `.nojekyll`, ale rozpakowanie ZIP-a NAD starymi plikami go nie skasuje. **Usuń go ręcznie ze starego repozytorium**, a potem zrób commit usunięcia. Bez tego Jekyll nie przetworzy projektów.
+7. Odczekaj do zakończenia zielonego przebiegu Pages w zakładce Actions i sprawdź portfolio i wybraną podstronę, np. `/projekty/churreria-mundo/`.
 
-Na darmowym planie GitHub Pages publiczne repozytorium jest wspierane, ale usługa ma limity. Nie ma kredytów wdrożeniowych Netlify.
+## 2. Aktywacja CMS
 
-## WAŻNE: Formularz nie wysyła jeszcze danych
+1. Otwórz https://app.pagescms.org/.
+2. Zaloguj się za pomocą GitHub i zaakceptuj autoryzację aplikacji.
+3. Daj aplikacji dostęp do repozytorium krystian.digital (najlepiej **tylko do tego repozytorium**, zamiast całego konta).
+4. Otwórz repozytorium i gałąź `main` w Pages CMS.
+5. Otwórz sekcję **Projekty / realizacje**. Początkowo zobaczysz 8 projektów.
+6. Otwórz Churreria Mundo, popraw opis lub wrzuć prawdziwy screenshot i zapisz. CMS sam zrobi commit; GitHub Pages przebuduje witrynę.
 
-GitHub Pages hostuje tylko statyczne pliki. Nie obsługuje Netlify Forms ani kodu serwerowego. Projekt zawiera gotowy formularz i jego obsługę JS, ale trzeba podłączyć usługę **Formspree**:
+## 3. Dodanie nowego projektu
 
-1. Załóż formularz na https://formspree.io/ (sprawdź aktualne limity darmowego planu).
-2. Skopiuj **identyfikator formularza** z linku typu `https://formspree.io/f/abcdefgh`.
-3. Otwórz `assets/js/config.js` i wpisz go między apostrofy:
+1. Pages CMS → `Projekty / realizacje` → `New` / `Dodaj`.
+2. Wypełnij: nazwa projektu, krótki opis, kategoria, status (zgodny z prawdą), typ pracy, tekst pełnego opisu, zdjęcie główne i opcjonalna galeria.
+3. Ustaw `Pokaż publicznie` = TAK, aby projekt pojawił się w portfolio.
+4. Wpisz `Kolejność` (np. 9, 10...) dla sortowania.
+5. Zapisz. Zostanie utworzony plik `_projects/nazwa-projektu.md`, a Jekyll opublikuje np. `/projekty/nazwa-projektu/`.
 
-   `window.KRYSTIAN_CONFIG = { formspreeId: 'abcdefgh' };`
+## 4. Wybór dwóch wyróżnionych projektów
 
-4. Zapisz, wykonaj commit/push i zrób test wysłania z działającej strony. Zanim ruszysz z reklamą czy udostępnianiem linku, sprawdź czy wiadomość dotarła.
-5. **Uzupełnij `prywatnosc/index.html`** o prawidłowe dane administratora i realne informacje dotyczące formularza, aby nie opublikować niedokończonego dokumentu.
+W edycji projektu jest przełącznik **Wyróżnij na stronie głównej**. Zaznacz go w DWÓCH projektach i wyłącz w pozostałych. Domyślnie wyróżnione są Churreria Mundo i SkądKlikasz.
 
-Do czasu skonfigurowania, formularz **nie udaje**, że wysłał dane. Wyświetla jasny komunikat, że odbiór wiadomości nie został podłączony. Awaryjną ścieżką kontaktu jest link do TikToka w stopce i obok formularza.
+> Pages CMS nie ma wbudowanej walidacji „maksymalnie dwa zaznaczone projekty w całej kolekcji”. Strona celowo pokaże TYLKO dwa pierwsze z oznaczonych projektów wg `Kolejność`. To zabezpieczenie nie blokuje zapisania trzeciego przełącznika. Pilnuj więc, żeby były zaznaczone dokładnie dwa.
 
-## Zdjęcie i projektowe okładki
+Pozostałe opublikowane projekty wciąż pozostają w sekcji `Wszystkie projekty`.
 
-- `assets/images/krystian.webp` — zdjęcie profilowe ze zdjęcia przesłanego w rozmowie, skompresowane do WebP.
-- `assets/images/projects/*.webp` — **graficzne okładki zastępcze, nie zdjęcia rzeczywistych projektów**. Każda ma nazwę zgodną z adresem podstrony. Jeśli zapiszesz screen na przykład jako `churreria-mundo.webp` i podmienisz oryginalny plik, pojawi się automatycznie na stronie głównej oraz na podstronie.
-- Aby po wstawieniu prawdziwego zrzutu uniknąć mylącej informacji: w `index.html` i odpowiedniej podstronie zaktualizuj atrybut `alt`, a na podstronie usuń tekst „Widoczna grafika to okładka projektowa”.
+## 5. Ważne uwagi
 
-## Zawartość
+- **Hosting:** GitHub Pages. **CMS:** Pages CMS (bezpłatny, open source). **Render:** NIE.
+- Projektowe zdjęcia trafiają do `assets/images/projects/`. Nie wrzucaj tam zdjęć poufnych — publiczne repozytorium i strona udostępniają je publicznie.
+- Samo ustawienie `Pokaż publicznie = NIE` usuwa projekt z list na stronie głównej, ale nie traktuj go jak bezpiecznej ochrony poufnych treści — wszystkie pliki źródłowe publicznego repozytorium mogą być dostępne.
+- Zachowane są dotychczasowe ścieżki wszystkich 8 projektów.
+- **Zmiana nazwy projektu** nie musi zmieniać jego adresu URL. Adres zależy od nazwy pliku Markdown, który utworzono podczas dodawania projektu. Zmiana nazwy pliku zmienia też URL.
+- `Pages CMS` to panel administracyjny, nie generator i nie hosting strony. GitHub Pages używa Jekyll do budowania HTML-i; deployment wykonuje GitHub automatycznie.
+- **Formularz kontaktowy nadal wymaga własnego Formspree ID** w `assets/js/config.js`; CMS nie obsługuje wiadomości z formularza.
+- W historii GitHuba pozostanie każda zmiana, więc można wrócić do wcześniejszego commita.
+- Powyższy workflow nie zużywa żadnych kredytów Netlify. GitHub Pages / Actions mają własne zasady i limity.
 
-- strona główna z ofertą i zdjęciem, sekcja usług, portfolio z 8 projektami, filtrowanie, proces współpracy, „O mnie”, formularz wyceny i link TikTok
-- 8 podstron projektowych, z uczciwie opisanymi statusami (demo, koncepcja, prototyp, gotowy projekt)
-- mobilna nawigacja, czytelne pola kontaktowe, brak zewnętrznych fontów i skryptów analitycznych
-- `404.html`, `.nojekyll`, `robots.txt` i szkic strony prywatności
+## 6. Który plik za co odpowiada?
 
-## Przyszłe zmiany
-
-Edytujesz pliki w folderze lokalnie; nic nie trzeba budować w terminalu. Nowe projekty najprościej dodać, modyfikując `index.html` i tworząc nową podstronę na wzór istniejącej. W razie potrzeby mogę później dołożyć prosty system oparty na danych JSON, aby unikać ręcznego edytowania HTML.
-
-## Przed publikacją
-
-- skonfiguruj i przetestuj formularz; uzupełnij stronę prywatności
-- sprawdź opisy i aktualne statusy projektów oraz zgodę na ich prezentację
-- podmień wybrane okładki na realne screenshoty
-- sprawdź telefon, komputer i poprawność podłączenia domeny
-
-## Zmiany w v2.1
-
-- Zmieniono nagłówek, pasek hasłowy, nazwy sekcji, tekst „O mnie” oraz tekst kontaktowy zgodnie z zatwierdzonymi propozycjami.
-- Usunięto pionowy napis przy portrecie; podpis teraz brzmi „Człowiek, nie agencja”.
-- Formularz pozwala wybrać **E-mail / Telefon**. Przy telefonie pojawia się pole godzin oddzwonienia (wymagane) i wymagany numer telefonu; pole e-mail staje się wtedy opcjonalne. Przy e-mailu to adres e-mail jest wymagany, a numer telefonu opcjonalny.
-- Wysyłka nadal wymaga podłączenia **Formspree** w `assets/js/config.js`; bez tego formularz nie wysyła wiadomości i informuje o braku konfiguracji.
+- `.pages.yml` — definicja pól CMS.
+- `_config.yml` — ustawienia Jekyll dla GitHub Pages.
+- `_projects/*.md` — opis i parametry każdego projektu.
+- `_layouts/project.html` — szablon każdej podstrony projektu.
+- `index.html` — strona główna, automatycznie pobiera zawartość z `site.projects` podczas budowania.
+- `assets/images/projects/` — okładki i galerie.
+- `assets/css/style.css` — wygląd.

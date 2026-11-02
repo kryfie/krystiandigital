@@ -1,0 +1,85 @@
+# Panel: https://app.pagescms.org/
+# Edytujesz projekty w GitHub. GitHub Pages buduje statyczne podstrony przez Jekyll.
+media:
+  input: assets/images/projects
+  output: /assets/images/projects
+  rename: safe
+  categories: [image]
+
+content:
+  - name: projects
+    label: Projekty / realizacje
+    type: collection
+    path: _projects
+    format: yaml-frontmatter
+    filename: "{title}.md"
+    view:
+      primary: title
+      fields: [title, category, status, published, featured, order]
+      sort: [order, title]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: title
+        label: Nazwa projektu
+        type: string
+        required: true
+      - name: description
+        label: Krótki opis na liście
+        type: text
+        required: true
+      - name: category
+        label: Kategoria
+        type: select
+        required: true
+        options:
+          values:
+            - name: www
+              label: Strony WWW
+            - name: tools
+              label: Narzędzia / AI
+      - name: project_type
+        label: Typ pracy / technologie
+        type: string
+      - name: status
+        label: Aktualny status (np. demo, prototyp, wdrożone)
+        type: string
+        required: true
+      - name: published
+        label: Pokaż publicznie
+        type: boolean
+        default: true
+      - name: featured
+        label: Wyróżnij na stronie głównej (maks. 2)
+        description: Zaznacz w DWÓCH projektach. Jeśli zaznaczysz więcej, strona pokaże tylko dwa pierwsze wg kolejności.
+        type: boolean
+        default: false
+      - name: order
+        label: Kolejność (1 = najwyżej)
+        type: number
+        default: 99
+      - name: image
+        label: Zdjęcie główne / okładka
+        type: image
+        options:
+          rename: true
+      - name: image_alt
+        label: Opis zdjęcia (dostępność)
+        type: string
+      - name: gallery
+        label: Galeria dodatkowych zdjęć
+        type: image
+        options:
+          multiple:
+            max: 12
+          rename: true
+      - name: external_url
+        label: Link do działającego projektu (opcjonalnie)
+        type: string
+      - name: image_note
+        label: Informacja o grafice (opcjonalnie)
+        type: text
+      - name: body
+        label: Opis projektu (pełna podstrona)
+        type: rich-text

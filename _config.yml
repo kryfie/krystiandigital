@@ -1,0 +1,18 @@
+title: Krystian Digital
+lang: pl
+markdown: kramdown
+collections:
+  projects:
+    output: true
+    permalink: /projekty/:name/
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+# Old pre-CMS HTML pages must not override Jekyll-generated project pages.
+exclude:
+  - projekty
+  - INSTRUKCJA.md
+  - .pages.yml
