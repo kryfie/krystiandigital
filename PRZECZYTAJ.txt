@@ -1,0 +1,14 @@
+KRYSTIAN.DIGITAL — POPRAWKA NAZW ZDJĘĆ W PAGES CMS
+
+1. Rozpakuj ZIP.
+2. Skopiuj WYŁĄCZNIE plik .pages.yml do katalogu głównego repozytorium krystiandigital i zastąp poprzedni.
+   Uwaga: pliki zaczynające się od kropki mogą być niewidoczne w niektórych ustawieniach eksploratora.
+3. GitHub Desktop: Commit -> Push origin.
+4. Odśwież Pages CMS (Ctrl+Shift+R) i wgraj kolejne zdjęcie.
+
+Nowe zdjęcia otrzymają losowe, unikalne nazwy, żeby unikać kolizji nazw 1.png / 1-1.png i związanych z nimi nieaktualnych miniaturek.
+Istniejące zdjęcia, opisy i ścieżki nie zostaną zmienione.
+Poprawka aktualizuje również etykietę pola Wyróżnij: teraz prawidłowo opisuje karuzelę obsługującą wiele projektów.
+
+Obraz 1-1.png już istnieje w repozytorium i zawiera zrzut SkądKlikasz, mimo że Pages CMS mógł pokazać starą miniaturę.
+Przy powtórnym wystąpieniu błędu miniatury otwórz bezpośrednio nowy plik w repozytorium GitHub, aby sprawdzić zapisane bajty.

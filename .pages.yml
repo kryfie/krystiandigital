@@ -3,7 +3,7 @@
 media:
   input: assets/images/projects
   output: /assets/images/projects
-  rename: safe
+  rename: random
   categories: [image]
 
 content:
@@ -63,7 +63,7 @@ content:
         label: Zdjęcie główne / okładka
         type: image
         options:
-          rename: true
+          rename: random
       - name: image_alt
         label: Opis zdjęcia (dostępność)
         type: string
@@ -73,7 +73,7 @@ content:
         options:
           multiple:
             max: 12
-          rename: true
+          rename: random
       - name: external_url
         label: Link do działającego projektu (opcjonalnie)
         type: string
